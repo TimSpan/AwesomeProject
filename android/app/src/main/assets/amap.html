@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>AMap Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        html,
+        body,
+        #container {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=b886c3f67152803e081f0b0f5594a55e"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        var map = new AMap.Map("container", {
+            zoom: 12,
+            center: [112.82, 28.24],
+        });
+
+        var marker = new AMap.Marker({
+            position: [112.82, 28.24],
+            title: "长沙",
+        });
+        map.add(marker);
+    </script>
+</body>
+
+</html>
