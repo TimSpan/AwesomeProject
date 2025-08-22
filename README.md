@@ -61,8 +61,28 @@ npx react-native run-android
 
 - react-native-webview （用于展示 高德 Web SDK）
 
+### 地图
 
+- react-native-amap3d （此项目已不再维护）
 
+### 图表
 
+- 
 
-### 
+### 图片预览
+
+三个还在更新的组件库
+
+- https://github.com/nandorojo/galeria  这个不行 这个是基于expo的
+- https://github.com/Glazzes/react-native-zoom-toolkit
+- https://github.com/likashefqet/react-native-image-zoom
+
+图片预览实现所依赖的库：
+
+- react-native-reanimated
+
+- react-native-worklets （此库需要安装`react-native-worklets`依赖项。为了实现更好的模块化，它被分离出来`react-native-reanimated`，必须单独安装。）
+
+- 
+
+  

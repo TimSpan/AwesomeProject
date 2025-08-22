@@ -14,8 +14,9 @@ import { Index2 } from '@/screens/test/index2';
 import { Index3 } from '@/screens/test/index3';
 import { RootStackParamList } from './types';
 import ShowComponents from '@/screens/ShowComponents';
-import { BottomNavigation } from 'react-native-paper';
-
+import ImagePreview from '@/screens/ImagePreview';
+// import { BottomNavigation } from 'react-native-paper';
+// import App from './BottomNavigation';
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 // const HomeStack = createNativeStackNavigator();
@@ -166,6 +167,16 @@ export function AppNavigation() {
             component={ShowComponents}
             options={{
               title: '组件展示',
+              headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
+              headerTintColor: '#ccc', // 标题和返回按钮颜色
+            }}
+          />
+
+          <RootStack.Screen
+            name="ImagePreview"
+            component={ImagePreview}
+            options={{
+              title: '图片预览',
               headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
               headerTintColor: '#ccc', // 标题和返回按钮颜色
             }}

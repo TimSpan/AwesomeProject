@@ -1,6 +1,7 @@
 // 路由类型定义（TypeScript）
 
 export type RootStackParamList = {
+  ImagePreview: undefined;
   Index2: undefined;
   Index3: undefined;
   HomeMain: undefined;

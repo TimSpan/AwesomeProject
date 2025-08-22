@@ -1,7 +1,7 @@
 // src/screens/HomeScreen.tsx
 import React, { useState } from 'react';
 
-import { Button as NButton } from 'react-native-paper';
+import { Button as NButton, Divider } from 'react-native-paper';
 import {
   View,
   Text,
@@ -11,10 +11,13 @@ import {
   Button,
   SafeAreaView,
   StatusBar,
+  ScrollView,
 } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/types';
 import { useAuthStore } from '@/stores/auth';
+import DialogWithIcon from '@/components/DialogWithIcon';
+import ConfirmDialog from '@/components/ConfirmDialog';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -29,68 +32,89 @@ export default function HomeScreen({ navigation }: Props) {
   const [photoUri, setPhotoUri] = useState<string | null>(null);
   const [videoUri, setVideoUri] = useState<string | null>(null);
   const logout = useAuthStore(state => state.logout); // 必须在组件顶层调用
+  const [visible, setVisible] = useState(false);
   return (
-    <View style={styles.container}>
-      <View style={styles.grid}>
+    <SafeAreaView>
+      <ScrollView style={styles.scrollView}>
         <View>
           <NButton
-            mode="contained-tonal"
+            style={{ borderRadius: 0, marginTop: 5, marginBottom: 5 }}
+            mode="contained"
             onPress={() => {
-              logout();
+              setVisible(true);
             }}
           >
             退出登录
           </NButton>
+          <Divider />
+
+          <Text
+            style={styles.text}
+            onPress={() =>
+              navigation.getParent()?.navigate('Test', { params: 1111 })
+            }
+          >
+            测试页面
+          </Text>
+          <Divider />
+          <Text
+            style={styles.text}
+            onPress={() =>
+              navigation.navigate('ShowComponents', { params: 1111 })
+            }
+          >
+            组件展示
+          </Text>
+          <Divider />
+          <Text
+            style={styles.text}
+            onPress={() => navigation.navigate('Camera', { setPhotoUri })}
+          >
+            拍照
+          </Text>
+          <Divider />
+          <Text
+            style={styles.text}
+            onPress={() => navigation.navigate('Video', { setVideoUri })}
+          >
+            录像
+          </Text>
+
+          <Divider />
+          <Text
+            style={styles.text}
+            onPress={() => navigation.navigate('ImagePreview')}
+          >
+            图片预览
+          </Text>
+
+          <Divider />
         </View>
 
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => {
-            // navigation.navigate('Test')
-            navigation.getParent()?.navigate('Test', { params: 1111 });
+        <ConfirmDialog
+          visible={visible}
+          title="提示"
+          text="确定要退出登录么？"
+          confirm={() => {
+            setVisible(false);
           }}
-        >
-          <Text>测试页面</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => {
-            // navigation
-            //   .getParent()
-            //   ?.navigate('ShowComponents', { params: 1111 });
-
-            navigation.navigate('ShowComponents', { params: 1111 });
+          close={() => {
+            setVisible(false);
           }}
-        >
-          <Text>组件展示</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => navigation.navigate('Camera', { setPhotoUri })}
-        >
-          <Text>📷 拍照</Text>
-          {photoUri && (
-            <Image source={{ uri: photoUri }} style={styles.preview} />
-          )}
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => navigation.navigate('Video', { setVideoUri })}
-        >
-          <Text>🎥 录像</Text>
-          {videoUri && <Text style={{ fontSize: 12 }}>视频已录制</Text>}
-        </TouchableOpacity>
-      </View>
-    </View>
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   SafeAreaView: { flex: 1, backgroundColor: '#007bff' },
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -107,4 +131,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   preview: { width: 60, height: 60, marginTop: 10, borderRadius: 8 },
+
+  scrollView: {
+    marginHorizontal: 20,
+  },
+
+  text: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 20,
+  },
 });

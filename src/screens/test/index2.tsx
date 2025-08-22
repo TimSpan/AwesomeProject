@@ -1,4 +1,10 @@
-import { BackHandler, StyleSheet, View } from 'react-native';
+import {
+  BackHandler,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
 
 import { useEffect, useState } from 'react';
 import { MapView, MapType } from 'react-native-amap3d';
