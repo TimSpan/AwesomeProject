@@ -63,7 +63,9 @@ export default function Example() {
           password: encryptedText,
         });
         console.log('_________________________ ~ login ~ res:', res);
+        // setTimeout(() => {
         setToken(res.data.tokenValue, res.data.tokenName);
+        // }, 2000);
       } catch (error) {
         console.error('_________________________ ~ login ~ error:', error);
       } finally {

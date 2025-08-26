@@ -140,7 +140,7 @@ export function AppNavigation() {
             options={{
               title: '接口测试',
               headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
-              headerTintColor: '#ccc', // 标题和返回按钮颜色
+              headerTintColor: '#fff', // 标题和返回按钮颜色
             }}
           />
 
@@ -150,7 +150,7 @@ export function AppNavigation() {
             options={{
               title: '拍照',
               headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
-              headerTintColor: '#ccc', // 标题和返回按钮颜色
+              headerTintColor: '#fff', // 标题和返回按钮颜色
             }}
           />
           <RootStack.Screen
@@ -159,7 +159,7 @@ export function AppNavigation() {
             options={{
               title: '录像',
               headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
-              headerTintColor: '#ccc', // 标题和返回按钮颜色
+              headerTintColor: '#fff', // 标题和返回按钮颜色
             }}
           />
           <RootStack.Screen
@@ -168,7 +168,7 @@ export function AppNavigation() {
             options={{
               title: '组件展示',
               headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
-              headerTintColor: '#ccc', // 标题和返回按钮颜色
+              headerTintColor: '#fff', // 标题和返回按钮颜色
             }}
           />
 
@@ -178,7 +178,7 @@ export function AppNavigation() {
             options={{
               title: '图片预览',
               headerStyle: { backgroundColor: '#007bff' }, // 导航栏背景色
-              headerTintColor: '#ccc', // 标题和返回按钮颜色
+              headerTintColor: '#fff', // 标题和返回按钮颜色
             }}
           />
         </>

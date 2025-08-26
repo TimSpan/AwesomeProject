@@ -97,6 +97,7 @@ export default function HomeScreen({ navigation }: Props) {
           text="确定要退出登录么？"
           confirm={() => {
             setVisible(false);
+            logout();
           }}
           close={() => {
             setVisible(false);

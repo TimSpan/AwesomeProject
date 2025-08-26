@@ -8,8 +8,9 @@ export default function ImagePreview({ route, navigation }: any) {
   const hideModal = () => setVisible(false);
   const containerStyle = { flex: 1 };
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <GestureHandlerRootView>
       <Modal
+        style={styles.z}
         visible={visible}
         onDismiss={hideModal}
         contentContainerStyle={containerStyle}
@@ -25,4 +26,7 @@ export default function ImagePreview({ route, navigation }: any) {
     </GestureHandlerRootView>
   );
 }
-const styles = StyleSheet.create({ container: { flex: 1 } });
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  z: { zIndex: 10000 },
+});

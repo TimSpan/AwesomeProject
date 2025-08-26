@@ -83,6 +83,46 @@ npx react-native run-android
 
 - react-native-worklets （此库需要安装`react-native-worklets`依赖项。为了实现更好的模块化，它被分离出来`react-native-reanimated`，必须单独安装。）
 
-- 
+  ​		
 
-  
+
+
+
+
+## 更改应用名称
+
+android/app/src/main/res/values/strings.xml
+
+```
+<resources>
+    <string name="app_name">RN原生示例</string>
+</resources>
+```
+
+
+
+## 更改应用图标
+
+android/app/src/main/res
+
+生成图标网址：https://icon.wuruihong.com/
+
+![image-20250825113257431](C:\Users\cat20\AppData\Roaming\Typora\typora-user-images\image-20250825113257431.png)
+
+
+
+替换即可
+
+## 清理缓存
+
+```
+cd android 
+./gradlew clean
+```
+
+
+
+
+
+
+
